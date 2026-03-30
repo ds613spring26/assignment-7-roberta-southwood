@@ -26,3 +26,19 @@ ui <- bootstrapPage(
   
   )
 
+# Define the server code 
+
+# original code
+server <- funciton(input, output) {
+  output$plot <- renderPlot({
+    data <- runif(input$n)
+    
+    # new if statements 
+    if (input$plotType == "Histogram") {
+      hist(data, col = "gray", main = "Histogram")}
+      else 
+        {boxplot(data, col = input$color, main = "Boxplot")}
+  })
+}
+
+
